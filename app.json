@@ -1,0 +1,5 @@
+{
+  "name": "Demo Company",
+  "description": "Building Docker and upload to heroku for Demo Company",
+  "image": "heroku/java"
+}

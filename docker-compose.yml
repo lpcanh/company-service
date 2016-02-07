@@ -1,0 +1,18 @@
+web:
+  build: .
+  command: 'bash -c ''java -jar  target/demo-company-0.0.1.jar'''
+  working_dir: /app/user
+  environment:
+    PORT: 3001
+  ports:
+    - '3001:3001'
+shell:
+  build: .
+  command: bash
+  working_dir: /app/user
+  environment:
+    PORT: 3001
+  ports:
+    - '3001:3001'
+  volumes:
+    - '.:/app/user'

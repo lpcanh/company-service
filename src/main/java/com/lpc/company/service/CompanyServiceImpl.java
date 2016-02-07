@@ -3,25 +3,28 @@ package com.lpc.company.service;
 import com.lpc.company.model.Company;
 import com.lpc.company.repository.CompanyRepository;
 import com.lpc.company.web.CompanyForm;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
-public class CompanyServiceImpl implements CompanyService{
+@Slf4j
+public class CompanyServiceImpl implements CompanyService {
     @Autowired
     CompanyRepository companyRepository;
 
 
     @Override
-    public Set<Company> getAll() {
+    public List<Company> getAll() {
         return companyRepository.findAll();
     }
 
     @Override
     public Company create(CompanyForm form) {
+        log.info(form.toString());
         Company cpm = new Company();
         cpm.setName(form.getName());
         cpm.setAddress(form.getAddress());
@@ -41,6 +44,7 @@ public class CompanyServiceImpl implements CompanyService{
 
     @Override
     public Optional<Company> update(Integer id, CompanyForm form) {
+        log.info(form.toString());
         return get(id).map(cpm -> {
             cpm.setName(form.getName());
             cpm.setAddress(form.getAddress());

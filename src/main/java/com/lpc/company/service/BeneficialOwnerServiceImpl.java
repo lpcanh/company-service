@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -18,8 +19,8 @@ public class BeneficialOwnerServiceImpl implements BeneficialOwnerService{
 
 
     @Override
-    public Set<BeneficialOwner> getAll(Integer companyId) {
-        return beneficialOwnerRepository.findByCompanyId(companyId);
+    public List<BeneficialOwner> getAll(Integer companyId) {
+        return beneficialOwnerRepository.findByCompanyIdOrderByIdDesc(companyId);
     }
 
     @Override

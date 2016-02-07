@@ -1,20 +1,24 @@
 package com.lpc.company.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lpc.company.web.EmployeeForm;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "employee")
-public class Employee extends Person{
+public class Employee {
+    @Id
+    @GeneratedValue
     private Integer id;
+
+    private String name;
+
     @ManyToOne
     @JoinColumn(name = "companyId")
+    @JsonIgnore
     private Company company;
 
     public EmployeeForm toForm() {

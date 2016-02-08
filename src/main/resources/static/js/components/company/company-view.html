@@ -1,0 +1,34 @@
+<div class="company">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><i class="fa fa-fw fa-building"></i> {{cv.company.name}}</div>
+        <div class="panel-body">
+            <address>
+                <strong>{{cv.company.address}}</strong><br/>
+                <abbr title="City">City:</abbr> {{cv.company.city}}<br/>
+                <abbr title="Country">Country:</abbr> {{cv.company.country}}<br/>
+                <abbr title="Phone">P:</abbr> {{cv.company.phone}}<br/>
+                <abbr title="Email">E:</abbr> {{cv.company.email}}<br/>
+            </address>
+        </div>
+        <table class="table">
+            <caption><i class="fa fa-users"></i> Employees</caption>
+            <tbody>
+            <tr data-ng-repeat="employee in cv.company.employees track by $index">
+                <td>{{employee.name}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading"><i class="fa fa-user-secret"></i> Beneficial Owner</div>
+        <table class="table">
+            <tbody>
+            <tr data-ng-repeat="beneficial in cv.beneficials track by $index">
+                <td>{{beneficial.name}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<button class="btn btn-sm btn-default" ui-sref="company.main">Back</button>

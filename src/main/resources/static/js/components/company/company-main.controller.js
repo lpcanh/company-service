@@ -12,12 +12,21 @@
         vm.edit = edit;
         vm.remove = remove;
         vm.reload = loadCompany;
+        vm.view = view;
+        vm.beneficial = beneficial;
 
         loadCompany();
 
         function loadCompany () {
             companyService.getAll().then(function (resp) {
                 vm.companies = resp.data;
+            });
+        }
+
+        function beneficial(cpm){
+            $state.go('company.beneficial', {
+                id: cpm.id,
+                company: cpm
             });
         }
 
@@ -29,6 +38,12 @@
         function edit (id) {
             $log.info('Edit: ' + id);
             $state.go('company.edit', {
+                id: id
+            });
+        }
+
+        function view(id){
+            $state.go('company.view', {
                 id: id
             });
         }

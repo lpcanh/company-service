@@ -10,4 +10,6 @@ public interface BeneficialOwnerRepository extends CrudRepository<BeneficialOwne
     public List<BeneficialOwner> findByCompanyIdOrderByIdDesc(Integer companyId);
 
     public Optional<BeneficialOwner> findByCompanyIdAndId(Integer companyId, Integer id);
+
+    public void deleteByCompanyId(Integer companyId);
 }

@@ -16,6 +16,9 @@ public class CompanyServiceImpl implements CompanyService {
     @Autowired
     CompanyRepository companyRepository;
 
+    @Autowired
+    BeneficialOwnerService beneficialOwnerService;
+
 
     @Override
     public List<Company> getAll() {
@@ -61,5 +64,6 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public void delete(Integer id) {
         companyRepository.delete(id);
+        beneficialOwnerService.delete(id);
     }
 }

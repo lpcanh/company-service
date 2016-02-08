@@ -12,4 +12,5 @@ public interface BeneficialOwnerService {
     public Optional<BeneficialOwner> get(Integer companyId, Integer id);
     public Optional<BeneficialOwner> update(Integer companyId, Integer id, BeneficialOwnerForm form);
     public void delete(Integer companyId, Integer id);
+    public void delete(Integer companyId);
 }

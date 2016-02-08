@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @Slf4j
@@ -49,5 +48,10 @@ public class BeneficialOwnerServiceImpl implements BeneficialOwnerService{
         get(companyId, id).ifPresent(beneficialOwner -> {
             beneficialOwnerRepository.delete(beneficialOwner);
         });
+    }
+
+    @Override
+    public void delete(Integer companyId) {
+        beneficialOwnerRepository.deleteByCompanyId(companyId);
     }
 }

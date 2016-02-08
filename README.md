@@ -5,13 +5,13 @@ This repository contain all source code using for demo backend (using spring-boo
 
 [Website Demo](https://demo-company.herokuapp.com)
 
-# Requirements:
+## Requirements:
 
   - Database MySQL
   - JDK 1.8
   - Maven latest.
 
-# Features: 
+## Features: 
 
 ### Company Management
 

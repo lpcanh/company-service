@@ -1,40 +1,59 @@
 <form data-ng-submit="cf.companyForm.$valid && cf.submit(cf.form)" name="cf.companyForm" novalidate="novalidate">
     <p class="bg-success" style="padding: 15px;" ng-if="cf.message.length">{{cf.message}}</p>
-    <p class="bg-danger"  style="padding: 15px;" ng-if="cf.errors.length">{{cf.errors | json}}</p>
+
+    <p class="bg-danger" style="padding: 15px;" ng-if="cf.errors.length">{{cf.errors | json}}</p>
+
     <div class="row">
         <div class="col-md-6 col-sm-6">
-            <div class="form-group" ng-class="{'has-error': (cf.companyForm.name.$dirty || cf.companyForm.$submitted) && cf.companyForm.name.$invalid}">
+            <div class="form-group"
+                 ng-class="{'has-error': (cf.companyForm.name.$dirty || cf.companyForm.$submitted) && cf.companyForm.name.$invalid}">
                 <label class="control-label">Name</label>
                 <input type="text" class="form-control" name="name" data-ng-model="cf.form.name" required="required"/>
-                <div class="help-block" ng-messages="cf.companyForm.name.$error" ng-show="cf.companyForm.name.$dirty || cf.companyForm.$submitted">
+
+                <div class="help-block" ng-messages="cf.companyForm.name.$error"
+                     ng-show="cf.companyForm.name.$dirty || cf.companyForm.$submitted">
                     <div ng-messages-include="js/components/form/messages.html"></div>
                 </div>
             </div>
-            <div class="form-group" ng-class="{'has-error': (cf.companyForm.address.$dirty || cf.companyForm.$submitted) && cf.companyForm.address.$invalid}">
+            <div class="form-group"
+                 ng-class="{'has-error': (cf.companyForm.address.$dirty || cf.companyForm.$submitted) && cf.companyForm.address.$invalid}">
                 <label class="control-label">Address</label>
-                <input type="text" class="form-control" name="address" data-ng-model="cf.form.address" required="required"/>
-                <div class="help-block" ng-messages="cf.companyForm.address.$error" ng-show="cf.companyForm.address.$dirty || cf.companyForm.$submitted">
+                <input type="text" class="form-control" name="address" data-ng-model="cf.form.address"
+                       required="required"/>
+
+                <div class="help-block" ng-messages="cf.companyForm.address.$error"
+                     ng-show="cf.companyForm.address.$dirty || cf.companyForm.$submitted">
                     <div ng-messages-include="js/components/form/messages.html"></div>
                 </div>
             </div>
-            <div class="form-group" ng-class="{'has-error': (cf.companyForm.city.$dirty || cf.companyForm.$submitted) && cf.companyForm.city.$invalid}">
+            <div class="form-group"
+                 ng-class="{'has-error': (cf.companyForm.city.$dirty || cf.companyForm.$submitted) && cf.companyForm.city.$invalid}">
                 <label class="control-label">City</label>
                 <input type="text" class="form-control" name="city" data-ng-model="cf.form.city" required="required"/>
-                <div class="help-block" ng-messages="cf.companyForm.city.$error" ng-show="cf.companyForm.city.$dirty || cf.companyForm.$submitted">
+
+                <div class="help-block" ng-messages="cf.companyForm.city.$error"
+                     ng-show="cf.companyForm.city.$dirty || cf.companyForm.$submitted">
                     <div ng-messages-include="js/components/form/messages.html"></div>
                 </div>
             </div>
-            <div class="form-group" ng-class="{'has-error': (cf.companyForm.country.$dirty  || cf.companyForm.$submitted) && cf.companyForm.country.$invalid}">
+            <div class="form-group"
+                 ng-class="{'has-error': (cf.companyForm.country.$dirty  || cf.companyForm.$submitted) && cf.companyForm.country.$invalid}">
                 <label class="control-label">Country</label>
-                <input type="text" class="form-control" name="country" data-ng-model="cf.form.country" required="required"/>
-                <div class="help-block" ng-messages="cf.companyForm.country.$error" ng-show="cf.companyForm.country.$dirty || cf.companyForm.$submitted">
+                <input type="text" class="form-control" name="country" data-ng-model="cf.form.country"
+                       required="required"/>
+
+                <div class="help-block" ng-messages="cf.companyForm.country.$error"
+                     ng-show="cf.companyForm.country.$dirty || cf.companyForm.$submitted">
                     <div ng-messages-include="js/components/form/messages.html"></div>
                 </div>
             </div>
-            <div class="form-group" ng-class="{'has-error': (cf.companyForm.email.$dirty || cf.companyForm.$submitted) && cf.companyForm.email.$invalid}">
+            <div class="form-group"
+                 ng-class="{'has-error': (cf.companyForm.email.$dirty || cf.companyForm.$submitted) && cf.companyForm.email.$invalid}">
                 <label class="control-label">Email</label>
                 <input type="email" class="form-control" name="email" data-ng-model="cf.form.email"/>
-                <div class="help-block" ng-messages="cf.companyForm.email.$error" ng-show="cf.companyForm.email.$dirty || cf.companyForm.$submitted">
+
+                <div class="help-block" ng-messages="cf.companyForm.email.$error"
+                     ng-show="cf.companyForm.email.$dirty || cf.companyForm.$submitted">
                     <div ng-messages-include="js/components/form/messages.html"></div>
                 </div>
             </div>
@@ -44,27 +63,36 @@
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
-            <label>Employees &nbsp; &nbsp;<button class="btn btn-xs btn-primary pull-right" type="button" data-ng-click="cf.addEmployee()">Add</button></label>
+            <label>Employees &nbsp; &nbsp;
+                <button class="btn btn-xs btn-primary pull-right" type="button" data-ng-click="cf.addEmployee()">Add
+                </button>
+            </label>
             <table style="width: 100%">
                 <tbody>
-                    <tr data-ng-repeat="employee in cf.form.employees track by $index">
-                        <td>
-                            <div class="form-group" ng-form="employeeForm" ng-class="{'has-error': (employeeForm.employee.$dirty || cf.companyForm.$submitted) && employeeForm.employee.$invalid}">
-                                <label class="control-label sr-only">Employee</label>
-                                <input type="text" class="form-control" required="required" name="employee" data-ng-model="employee.name"/>
-                                <div class="help-block" ng-messages="employeeForm.employee.$error" ng-show="employeeForm.employee.$dirty || cf.companyForm.$submitted">
-                                    <div ng-messages-include="js/components/form/messages.html"></div>
-                                </div>
+                <tr data-ng-repeat="employee in cf.form.employees track by $index">
+                    <td>
+                        <div class="form-group" ng-form="employeeForm"
+                             ng-class="{'has-error': (employeeForm.employee.$dirty || cf.companyForm.$submitted) && employeeForm.employee.$invalid}">
+                            <label class="control-label sr-only">Employee</label>
+                            <input type="text" class="form-control" required="required" name="employee"
+                                   data-ng-model="employee.name"/>
+
+                            <div class="help-block" ng-messages="employeeForm.employee.$error"
+                                 ng-show="employeeForm.employee.$dirty || cf.companyForm.$submitted">
+                                <div ng-messages-include="js/components/form/messages.html"></div>
                             </div>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" data-ng-click="cf.removeEmployee($index)">Remove</button>
-                        </td>
-                    </tr>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" data-ng-click="cf.removeEmployee($index)">Remove</button>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+    <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-fw" ng-class="{'fa-check': !cf.isLoading, 'fa-spinner fa-pulse': cf.isLoading}"></i> Save
+    </button>
     <button type="button" class="btn btn-default btn-sm" ui-sref="company.main">Back</button>
 </form>

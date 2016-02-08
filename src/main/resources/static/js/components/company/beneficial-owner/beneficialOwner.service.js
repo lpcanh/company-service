@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('myApp.company')
+        .module('myApp.company.beneficialOwner')
         .factory('BeneficialOwnerService', BeneficialOwnerService);
 
     BeneficialOwnerService.$inject = ['$log', '$http'];

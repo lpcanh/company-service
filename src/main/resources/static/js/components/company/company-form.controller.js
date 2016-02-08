@@ -17,9 +17,11 @@
         vm.removeEmployee = removeEmployee;
         vm.message = "";
         vm.errors = [];
+        vm.isLoading = false;
 
         function submit(data){
             var savePromise;
+            vm.isLoading = true;
             if(id){
                 savePromise = companyService.update(id, data);
             } else{
@@ -33,6 +35,8 @@
                 vm.message = "Save company success";
             }, function(err){
                 vm.errors = err.data;
+            }).finally(function(){
+                vm.isLoading = false;
             });
             $log.info('Submit Form');
             $log.info(data);

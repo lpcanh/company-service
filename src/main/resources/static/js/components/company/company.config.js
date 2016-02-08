@@ -69,19 +69,6 @@
                         })
                     }]
                 }
-            }).state('company.beneficial', {
-                url: '/{id:int}/beneficial',
-                templateUrl: 'js/components/company/beneficial-owner/beneficial-owner-main.html',
-                controller: 'beneficialMainController',
-                controllerAs: 'bo',
-                data: {
-                    title: "Company Beneficial Management"
-                },
-                resolve: {
-                    id: ['$stateParams', function ($stateParams) {
-                        return $stateParams.id;
-                    }]
-                }
             });
     }
 })();

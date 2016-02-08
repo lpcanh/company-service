@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"><i class="fa fa-user-secret"></i> Beneficial Owner Form</div>
+    <div class="panel-body">
+        <p class="bg-success" style="padding: 15px;" ng-if="bF.message.length">{{bF.message}}</p>
+
+        <p class="bg-danger" style="padding: 15px;" ng-if="bF.errors.length">{{bF.errors | json}}</p>
+
+        <form name="bF.beneficialForm" data-ng-submit="bF.beneficialForm.$valid && bF.submit(bF.form)"
+              novalidate="novalidate">
+            <div class="form-group"
+                 ng-class="{'has-error': (bF.beneficialForm.name.$dirty || bF.beneficialForm.$submitted) && bF.beneficialForm.name.$invalid}">
+                <label class="control-label">Beneficial Name</label>
+                <input type="text" class="form-control" required="required" data-ng-model="bF.form.name" name="name"/>
+
+                <div class="help-block" ng-messages="bF.beneficialForm.name.$error"
+                     ng-show="bF.beneficialForm.name.$dirty || bF.beneficialForm.$submitted">
+                    <div ng-messages-include="js/components/form/messages.html"></div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-fw" ng-class="{'fa-check': !bF.isLoading, 'fa-spinner fa-pulse': bF.isLoading}"></i> Save
+            </button>
+            <button type="button" class="btn btn-default btn-sm" ui-sref="company.beneficial">Close</button>
+        </form>
+    </div>
+</div>

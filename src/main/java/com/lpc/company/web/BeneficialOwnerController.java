@@ -27,7 +27,7 @@ public class BeneficialOwnerController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<BeneficialOwnerForm> get(@PathVariable Integer companyId, @RequestParam Integer id) {
+    public ResponseEntity<BeneficialOwnerForm> get(@PathVariable Integer companyId, @PathVariable Integer id) {
         return beneficialOwnerService.get(companyId, id)
                 .map(BeneficialOwner::toForm).map(form -> new ResponseEntity<>(form, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));

@@ -1,1 +1,47 @@
-<div>{{cmc.title}}</div>
+<div class="row"></div>
+<div class="pull-right">
+    <div class="btn-group">
+        <button class="btn btn-primary btn-sm" data-ng-click="cmc.create()">Create</button>
+        <button class="btn btn-default btn-sm" data-ng-click="cmc.reload()">Reload</button>
+    </div>
+</div>
+<table class="table table-hover">
+    <caption>List of companies</caption>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="company in cmc.companies track by company.id">
+            <td>{{company.name}}</td>
+            <td>{{company.address}}</td>
+            <td>{{company.city}}</td>
+            <td>{{company.country}}</td>
+            <td>{{company.email}}</td>
+            <td>{{company.phone}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-success btn-sm" data-ng-click="cmc.beneficial(company.id)" title="Beneficial Owner">
+                        <i class="fa fa-users fa-fw"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm" data-ng-click="cmc.view(company.id)" title="Company View">
+                        <i class="fa fa-building fa-fw"></i>
+                    </button>
+                    <button class="btn btn-warning btn-sm" ng-click="cmc.edit(company.id)" title="Edit">
+                        <i class="fa fa-pencil fa-fw"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm" data-ng-click="cmc.remove(company)" title="Delete">
+                        <i class="fa fa-trash fa-fw"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

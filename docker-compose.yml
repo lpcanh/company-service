@@ -1,18 +1,18 @@
 web:
   build: .
-  command: 'bash -c ''java -jar  target/demo-company-0.0.1.jar'''
+  command: 'bash -c ''java -Dserver.port=$PORT $JAVA_OPTS -jar target/demo-company-0.0.1.jar'''
   working_dir: /app/user
   environment:
-    PORT: 3001
+    PORT: 8080
   ports:
-    - '3001:3001'
+    - '8080:8080'
 shell:
   build: .
   command: bash
   working_dir: /app/user
   environment:
-    PORT: 3001
+    PORT: 8080
   ports:
-    - '3001:3001'
+    - '8080:8080'
   volumes:
     - '.:/app/user'

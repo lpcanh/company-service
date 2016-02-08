@@ -9,13 +9,32 @@
     function companyService ($http, $log) {
         var URL = '/company';
         return {
-            create: create
+            getAll: getAll,
+            create: create,
+            get: get,
+            update: update,
+            remove: remove
         };
 
         ////////////////
+        function getAll(){
+            return $http.get(URL);
+        }
 
         function create (form) {
             return $http.post(URL, form);
+        }
+
+        function get(id){
+            return $http.get(URL + '/' + id);
+        }
+
+        function update(id, form){
+            return $http.post(URL + '/' + id, form);
+        }
+
+        function remove(id){
+            return $http.delete(URL + '/' + id);
         }
     }
 })();

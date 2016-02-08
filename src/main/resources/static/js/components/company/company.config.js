@@ -19,6 +19,43 @@
                 templateUrl: 'js/components/company/company-main.html',
                 controller: 'CompanyMainController',
                 controllerAs: 'cmc',
-            });
+                data:{
+                    title: "Company Management"
+                }
+            }).state('company.create', {
+                url: '/create',
+                templateUrl: 'js/components/company/company-form.html',
+                controller: 'CompanyFormController',
+                controllerAs: 'cf',
+                data:{
+                    title: "Create Company"
+                },
+                resolve: {
+                    id: function(){
+                        return null;
+                    },
+                    form: function(){
+                        return null;
+                    }
+                }
+            }).state('company.edit', {
+                url: '/{id:int}/edit',
+                templateUrl: 'js/components/company/company-form.html',
+                controller: 'CompanyFormController',
+                controllerAs: 'cf',
+                data:{
+                    title: "Edit Company"
+                },
+                resolve:{
+                    id: ['$stateParams', function($stateParams){
+                        return $stateParams.id;
+                    }],
+                    form: ['$stateParams', 'companyService', function($stateParams, companyService){
+                        return companyService.get($stateParams.id).then(function(resp){
+                            return resp.data;
+                        })
+                    }]
+                }
+            });;
     }
 })();

@@ -5,9 +5,15 @@ This repository contain all source code using for demo backend (using spring-boo
 
 [Website Demo](https://demo-company.herokuapp.com)
 
+# Requirements:
+
+  - Database MySQL
+  - JDK 1.8
+  - Maven latest.
+
 # Features: 
 
-### Company
+### Company Management
 
   - List all company.
 ```
@@ -26,7 +32,7 @@ curl -i -X POST -H "Content-Type: application/json" https://demo-company.herokua
 curl -i -X DELETE https://demo-company.herokuapp.com/company/1
 ```
 
-### Company's Benefical Owners
+### Company's Benefical Owners Management
 
   - List all beneficial owners
 ```

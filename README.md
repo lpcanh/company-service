@@ -3,17 +3,19 @@ Demo Company Service
 
 This repository contain all source code using for demo backend (using spring-boot, spring-web, spring-data), and frontend using (angularjs 1.4.9, bootstrap 3.3.6, font-awesome 4.5.0)
 
+[Website Demo](https://demo-company.herokuapp.com)
+
 # Features: 
 
 ### Company
 
   - List all company.
 ```
-curl https://demo-company.herokuapp.com
+curl -i -X GET https://demo-company.herokuapp.com
 ```
   - Create new company.
 ```
-curl curl -i -X POST -H "Content-Type: application/json" https://demo-company.herokuapp.com/company -d '{"name": "Le Phuoc Canh", "address": "4/3 Thang Nhi", "city": "Vung Tau", "country": "Viet Nam", "phone": "84938130683", "email": "lephuoccanh@gmail.com", "employees": [{"name": "Nguyen Ho Thu"}, {"name": "Tran Hoang Tan"}]}'
+curl -i -X POST -H "Content-Type: application/json" https://demo-company.herokuapp.com/company -d '{"name": "Le Phuoc Canh", "address": "4/3 Thang Nhi", "city": "Vung Tau", "country": "Viet Nam", "phone": "84938130683", "email": "lephuoccanh@gmail.com", "employees": [{"name": "Nguyen Ho Thu"}, {"name": "Tran Hoang Tan"}]}'
 ```
   - Update company.
 ```
